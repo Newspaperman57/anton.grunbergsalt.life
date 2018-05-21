@@ -1,0 +1,29 @@
+body {
+	background-color: #071421;
+	background-image: url(img/saltspoon.jpg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	color: #cdd3ca;
+	background-position: center 45em;
+	text-align: center;
+}
+
+.text-wrapper {margin-top: 12em;position: relative;transform: rotate(360deg);transition: transform .5s cubic-bezier(0.2, 0.51, 0.33, 1.2), top .5s cubic-bezier(0.2, 0.51, 0.33, 1.2);top: -20em;}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: background-position .5s cubic-bezier(0.2, 0.51, 0.33, 1.2);
+}
+
+body.active .text-wrapper {
+    top: 0;
+    transform: rotate(0);
+}
+
+body.active {
+    background-position: bottom;
+}
