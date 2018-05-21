@@ -1,5 +1,5 @@
 <?php 
 
-echo "Added $_POST['text'] to grunbergsalt.info!";
+echo "Added " . $_POST['text'] . " to grunbergsalt.info!";
 
 ?>
