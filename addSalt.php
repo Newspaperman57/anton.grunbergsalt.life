@@ -1,5 +1,6 @@
 <?php 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	header('Content-Type: application/json');
 	if($_POST['text'] == "proclaim") {
 		echo "{
 				    \"response_type\": \"in_channel\",
