@@ -11,12 +11,12 @@
 <body>
 	<div class="text-wrapper">
 		<h1>Dagens Salt</h1>
-		<!-- Nyeste øverst !-->
-		<p>"Login-knappen skal være rød hvis den ikke skal være bryst-cancer-farvet!"</p>
-		<p>"Jeg har slet ikke saltet nok i dag!"</p>
-		<p>"Kaster det sådan lidt op udover min skærm det der tekst!"</p>
-		<p>"Det menneskelige øje er ikke lavet til at fokusere på så mange lysende pærer!"</p>
-		<p>"Er du gal der er mange tasks!"</p>
+		<?php 
+			$csvFile = file('grunbergsalt.csv');
+		    foreach ($csvFile as $line) {
+		        echo "<p>" . str_getcsv($line) . "</p>";
+		    }
+		?>
 	</div>
 	<!-- <svg viewBox="0 0 370 251.719"><path class="shape-letter-o isolation" stroke-width="0" d="M337.249 125.844c0-51.423-41.675-93.093-93.098-93.093-51.441 0-93.09 41.68-93.09 93.13 0 51.424 41.675 93.087 93.09 93.087h.015" style="transform-origin: 244px 126px 0px; stroke-dasharray: 438.81px; stroke-width: 65.502px; stroke-dashoffset: 877.62px; transform: translate(0px, 0px) rotate(0deg) skew(0deg, 0deg) scale(1, 1);"></path></svg> -->
 	<script type="text/javascript">
