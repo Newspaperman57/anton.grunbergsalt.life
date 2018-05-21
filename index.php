@@ -14,7 +14,7 @@
 		<?php 
 			$csvFile = file('grunbergsalt.csv');
 		    foreach ($csvFile as $line) {
-		        echo "<p>" . str_getcsv($line) . "</p>";
+		        echo "<p>" . str_getcsv($line)[0] . "</p>";
 		    }
 		?>
 	</div>
