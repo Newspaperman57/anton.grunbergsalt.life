@@ -12,10 +12,15 @@
 	<div class="text-wrapper">
 		<h1>Dagens Salt</h1>
 		<?php 
-			$csvFile = file('grunbergsalt.csv');
-		    foreach ($csvFile as $line) {
-		        echo "<p>\"" . str_getcsv($line)[0] . "\"</p>";
-		    }
+			$todaysSalt = date('Y/m/d') . '.csv';
+			if(file_exists($todaysSalt)) {
+				$csvFile = file($todaysSalt);
+			    foreach ($csvFile as $line) {
+			        echo "<p>\"" . str_getcsv($line)[0] . "\"</p>";
+			    }
+			} else {
+				echo '<p>No salts yet! Try poking him with a stick</p>';
+			}
 		?>
 	</div>
 	<!-- <svg viewBox="0 0 370 251.719"><path class="shape-letter-o isolation" stroke-width="0" d="M337.249 125.844c0-51.423-41.675-93.093-93.098-93.093-51.441 0-93.09 41.68-93.09 93.13 0 51.424 41.675 93.087 93.09 93.087h.015" style="transform-origin: 244px 126px 0px; stroke-dasharray: 438.81px; stroke-width: 65.502px; stroke-dashoffset: 877.62px; transform: translate(0px, 0px) rotate(0deg) skew(0deg, 0deg) scale(1, 1);"></path></svg> -->
