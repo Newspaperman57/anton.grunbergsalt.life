@@ -7,10 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if($_POST['text'] == "proclaim" || empty($_POST['text']) || $_POST['text'] == '--help') {
 		$data['text'] = "Salter Grünberg? Skriv /salt efterfulgt af Grünbergs salt og det ender direkte på https://GrunbergSalt.life!";
 	} else {
-		if($_POST['user_name'] == "Mathias Pihl") {
+		if($_POST['user_id'] == "U91FWKPJ4") {
 			$data['text'] = getRandomGifURL();
 		} else {
-			$data['text'] = $_POST['user_name'] . "Har tilføjet \"" . $_POST['text'] . "\" til https://GrunbergSalt.life!";
+			$data['text'] = "\"" . $_POST['text'] . "\" er tilføjet til https://GrunbergSalt.life!";
 			$fileContent = $_POST['text'] . "\n";
 			if(!file_exists($todaysSalt)) {
 				mkdir(dirname($todaysSalt), 0777, TRUE);
