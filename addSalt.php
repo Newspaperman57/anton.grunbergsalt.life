@@ -1,5 +1,5 @@
 <?php 
-require 'getRandomGifURL';
+require 'getRandomGif.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	header('Content-Type: application/json');
 	$data['response_type'] = "in_channel";
