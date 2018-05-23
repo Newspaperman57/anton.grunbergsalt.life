@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		if($_POST['user_name'] == "Mathias Pihl") {
 			$data['text'] = getRandomGifURL();
 		} else {
-			$data['text'] = $_POST['user_name'] . "Har tilføjet "\"" . $_POST['text'] . "\" til https://GrunbergSalt.life!";
+			$data['text'] = $_POST['user_name'] . "Har tilføjet \"" . $_POST['text'] . "\" til https://GrunbergSalt.life!";
 			$fileContent = $_POST['text'] . "\n";
 			if(!file_exists($todaysSalt)) {
 				mkdir(dirname($todaysSalt), 0777, TRUE);
