@@ -1,5 +1,12 @@
-
-<!-- saved from url=(0026)https://grunbergsalt.life/ -->
+<?php
+	$todaysSalt = date('Y/m/d') . '.csv';
+	if(isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day']) && is_numeric($_GET['year']) && is_numeric($_GET['month']) && is_numeric($_GET['day'])) {
+		$archiveMode = TRUE;
+		$todaysSalt = $_GET['year'] . '/' . $_GET['month'] . '/' . $_GET['day'] . '.csv';
+		// echo "Archive mode";
+	} else {
+	}
+?>
 <html><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -10,20 +17,20 @@
 </head>
 <body>
 	<div class="text-wrapper">
-		<h1>Dagens Salt</h1>
+		<h1>Dagens Salt<?php if($archiveMode) echo ' - ' . $_GET['year'] . '-' . $_GET['month'] . '-' . $_GET['day']; ?></h1>
 		<?php 
-			$todaysSalt = date('Y/m/d') . '.csv';
 			if(file_exists($todaysSalt)) {
 				$csvFile = file($todaysSalt);
 			    foreach ($csvFile as $line) {
 			        echo "<p>\"" . str_getcsv($line)[0] . "\"</p>";
 			    }
+			} elseif($archiveMode) {
+				echo '<p>No salts on this date! Maybe it\'s in the future?</p>';
 			} else {
 				echo '<p>No salts yet! Try poking him with a stick</p>';
 			}
 		?>
 	</div>
-	<!-- <svg viewBox="0 0 370 251.719"><path class="shape-letter-o isolation" stroke-width="0" d="M337.249 125.844c0-51.423-41.675-93.093-93.098-93.093-51.441 0-93.09 41.68-93.09 93.13 0 51.424 41.675 93.087 93.09 93.087h.015" style="transform-origin: 244px 126px 0px; stroke-dasharray: 438.81px; stroke-width: 65.502px; stroke-dashoffset: 877.62px; transform: translate(0px, 0px) rotate(0deg) skew(0deg, 0deg) scale(1, 1);"></path></svg> -->
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('body').toggleClass('active');
