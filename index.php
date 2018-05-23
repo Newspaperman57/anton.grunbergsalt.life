@@ -22,7 +22,7 @@
 			if(file_exists($todaysSalt)) {
 				$csvFile = file($todaysSalt);
 			    foreach ($csvFile as $line) {
-			        echo "<p>\"" . htmlspecialchars(str_getcsv($line)[0], ENT_QUOTES) . "\"</p>";
+			        echo "<p>\"" . htmlspecialchars(implode(', ', str_getcsv($line)), ENT_QUOTES) . "\"</p>";
 			    }
 			} elseif($archiveMode) {
 				echo '<p>No salts on this date! Maybe it\'s in the future?</p>';
