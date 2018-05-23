@@ -4,6 +4,5 @@
 		$gifContentJSON = json_decode($gifSearchContent, true);
 		return 'http://i.' . substr($gifContentJSON['data'][0]['images']['fixed_height']['url'], 15);
 	}
-	echo "<img src='" . getRandomGifURL() . "'>";
 ?>
 
