@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if($_POST['text'] == "proclaim" || empty($_POST['text']) || $_POST['text'] == '--help') {
 		$data['text'] = "Salter Grünberg? Skriv /salt efterfulgt af Grünbergs salt og det ender direkte på https://GrunbergSalt.life!";
 	} else {
-		if($_POST['user_id'] == "U91FWKPJ4" || $_POST['text'] = "ban") {
+		if($_POST['user_id'] == "U91FWKPJ4" || $_POST['text'] == "ban") {
 			$data['text'] = getRandomGifURL();
 		} else {
 			$data['text'] = "\"" . $_POST['text'] . "\" er tilføjet til https://GrunbergSalt.life!";
