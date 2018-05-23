@@ -1,4 +1,5 @@
 <?php 
+require 'getRandomGifURL';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	header('Content-Type: application/json');
 	$data['response_type'] = "in_channel";
@@ -6,14 +7,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if($_POST['text'] == "proclaim" || empty($_POST['text']) || $_POST['text'] == '--help') {
 		$data['text'] = "Salter Grünberg? Skriv /salt efterfulgt af Grünbergs salt og det ender direkte på https://GrunbergSalt.life!";
 	} else {
-		$data['text'] = "\"" . $_POST['text'] . "\" er nu tilføjet til https://GrunbergSalt.life!";
-		$fileContent = $_POST['text'] . "\n";
-		if(!file_exists($todaysSalt)) {
-			mkdir(dirname($todaysSalt), 0777, TRUE);
-			touch($todaysSalt);
+		if($_POST['user_name'] == "Mathias Pihl") {
+			$data['text'] = getRandomGifURL();
+		} else {
+			$data['text'] = "\"" . $_POST['text'] . "\" er nu tilføjet til https://GrunbergSalt.life!";
+			$fileContent = $_POST['text'] . "\n";
+			if(!file_exists($todaysSalt)) {
+				mkdir(dirname($todaysSalt), 0777, TRUE);
+				touch($todaysSalt);
+			}
+			$fileContent .= file_get_contents($todaysSalt);
+			file_put_contents($todaysSalt, $fileContent);
 		}
-		$fileContent .= file_get_contents($todaysSalt);
-		file_put_contents($todaysSalt, $fileContent);
 	}
 	echo json_encode($data);
 }
