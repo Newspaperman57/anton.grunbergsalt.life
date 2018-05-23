@@ -23,7 +23,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: auto;
     transition: background-position .5s cubic-bezier(0.2, 0.51, 0.33, 1.2);
 }
 
